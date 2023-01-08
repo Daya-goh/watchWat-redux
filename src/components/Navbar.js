@@ -1,22 +1,16 @@
 import { useState } from "react";
 import { GoSearch } from "react-icons/go";
+import SearchBar from "./SearchBar";
 function NavBar() {
   const [search, setSearch] = useState(false);
   const handleSearchClick = () => {
-    console.log("click");
     setSearch(true);
   };
 
   let searchButtonDisplay;
 
   if (search) {
-    searchButtonDisplay = (
-      <input
-        type="text"
-        placeholder="search"
-        className="input input-bordered w-54 max-w-xs h-8 text-sm"
-      />
-    );
+    searchButtonDisplay = <SearchBar />;
   } else {
     searchButtonDisplay = (
       <button className="btn btn-square btn-ghost" onClick={handleSearchClick}>
