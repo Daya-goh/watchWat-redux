@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { showsApi } from "./api";
 import { showsReducer } from "./slices/searchBarSlice";
-import { setTerm } from "./slices/searchBarSlice";
+import { setTerm, setData } from "./slices/searchBarSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,5 +10,5 @@ const store = configureStore({
 });
 
 export { store };
-export { setTerm };
-export { useFetchShowsQuery } from "./api";
+export { setTerm, setData };
+// export { useFetchShowsQuery } from "./api";
