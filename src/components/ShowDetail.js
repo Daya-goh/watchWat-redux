@@ -33,7 +33,7 @@ function ShowDetail() {
 
   let content;
   if (openTab === 1) {
-    content = <h1>{showDetail?.plot_overview}</h1>;
+    content = <h1 className="mt-2">{showDetail?.plot_overview}</h1>;
   } else if (openTab === 2) {
     content = (
       <iframe
@@ -44,7 +44,7 @@ function ShowDetail() {
         allow="autoplay"
         width="560"
         height="315"
-        className=""
+        className="mt-2"
       />
     );
   }
@@ -65,29 +65,35 @@ function ShowDetail() {
           />
         </div>
 
-        <div className="flex flex-col justify-center w-1/2  gap-2 m-2  text-white ">
-          <h1 className="text-4xl font-bold">{showDetail?.title}</h1>
-          <h1>{showDetail?.original_title}</h1>
-          <h1>{showDetail?.release_date}</h1>
-          <div className="flex flex-row gap-1">{renderedGenre} </div>
+        <div className="absolute right-8 top-32 w-1/2  m-2  text-white ">
+          <div className="flex flex-col gap-2">
+            <h1 className="text-4xl font-bold ">{showDetail?.title}</h1>
+            <h1>{showDetail?.original_title}</h1>
+            <h1>{showDetail?.release_date}</h1>
+            <div className="flex flex-row gap-1">{renderedGenre} </div>
 
-          <div className="flex flex-row gap-5">
-            <h1
-              onClick={handleOverviewClick}
-              className={`${
-                openTab === 1 ? "font-bold bg-white bg-opacity-10 p-2" : "p-2"
-              }`}
-            >
-              Overview
-            </h1>
-            <h1
-              onClick={handleTrailerClick}
-              className={`${
-                openTab === 2 ? "font-bold  bg-white bg-opacity-10 p-2" : "p-2"
-              }`}
-            >
-              Trailer
-            </h1>
+            <div className="flex flex-row gap-5">
+              <h1
+                onClick={handleOverviewClick}
+                className={`${
+                  openTab === 1
+                    ? "font-bold bg-white bg-opacity-10 p-2 border-b-2 rounded-xs"
+                    : "p-2"
+                }`}
+              >
+                Overview
+              </h1>
+              <h1
+                onClick={handleTrailerClick}
+                className={`${
+                  openTab === 2
+                    ? "font-bold  bg-white bg-opacity-10 p-2 border-b-2 rounded-xs"
+                    : "p-2"
+                }`}
+              >
+                Trailer
+              </h1>
+            </div>
           </div>
           <hr />
           <div>{content}</div>
