@@ -1,14 +1,20 @@
-import { useSelector } from "react-redux";
-
+import searchData from "../Data/SearchResultData";
+import ShowCard from "./ShowCard";
 function SearchResults() {
-  const searchResultsData = useSelector((state) => {
-    return state.shows.data;
-  });
-  const renderedSearchResults = searchResultsData.map((result) => {
-    return <div key={result.id}>{result.name}</div>;
+  //* for api search -> currently use imported data
+  // const searchResultsData = useSelector((state) => {
+  //   return state.shows.data;
+  // });
+
+  const renderedSearchResults = searchData.map((result) => {
+    return <ShowCard key={result.id} show={result} />;
   });
 
-  return <div>{renderedSearchResults}</div>;
+  return (
+    <div className="flex flex-row flex-wrap gap-5 m-10 ">
+      {renderedSearchResults}
+    </div>
+  );
 }
 
 export default SearchResults;

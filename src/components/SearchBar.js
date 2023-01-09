@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import searchData from "../Data/SearchResultData";
 import { setData, setTerm } from "../store";
 // import { useFetchShowsQuery } from "../store/api";
 
@@ -20,9 +21,10 @@ function SearchBar() {
     console.log(inputTerm);
     const key = "Xi2NW1MlhJARxSqBIbyUJD68ZjljDinK2iKSzG6F";
     const searchURL = `https://api.watchmode.com/v1/autocomplete-search/?apiKey=${key}&search_field=name&search_value=${inputTerm}&search_type=2`;
-    const response = await axios.get(searchURL);
-    console.log(response.data);
-    dispatch(setData(response.data.results));
+    // const response = await axios.get(searchURL);
+    // console.log(response.data);
+    // dispatch(setData(response.data.results));
+    dispatch(setData(searchData));
     navigate(`/searchResults/${inputTerm}`);
   };
 
