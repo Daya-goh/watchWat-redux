@@ -6,13 +6,8 @@ import ShowDetail from "../components/ShowDetail";
 import { setShowDetails } from "../store";
 
 function ShowDetailPage() {
-  const { name, id } = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
-  const showDetail = useSelector((state) => {
-    return state.shows.showData;
-  });
-
-  console.log(showDetail);
 
   useEffect(() => {
     const key = "Xi2NW1MlhJARxSqBIbyUJD68ZjljDinK2iKSzG6F";
@@ -26,7 +21,7 @@ function ShowDetailPage() {
 
   return (
     <div>
-      <ShowDetail show={showDetail} />
+      <ShowDetail />
     </div>
   );
 }

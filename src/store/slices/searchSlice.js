@@ -5,7 +5,7 @@ const searchSlice = createSlice({
   initialState: {
     searchTerm: "",
     searchData: [],
-    showData: null,
+    showData: {},
   },
   reducers: {
     setTerm(state, action) {
@@ -15,6 +15,7 @@ const searchSlice = createSlice({
       state.searchData = action.payload;
     },
     setShowDetails(state, action) {
+      console.log(state.showData);
       state.showData = action.payload;
     },
     resetData(state, action) {

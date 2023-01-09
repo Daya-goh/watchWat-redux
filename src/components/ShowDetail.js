@@ -1,6 +1,18 @@
-function ShowDetail({ show }) {
-  const renderedGenre = show.genre_names.map((genre) => {
-    return <h1 className="text-sm">{genre}</h1>;
+import { useState } from "react";
+import { useSelector } from "react-redux";
+
+function ShowDetail() {
+  const [openTab, setOpenTab] = useState(1);
+  const showDetail = useSelector((state) => {
+    return state?.shows?.showData;
+  });
+
+  const renderedGenre = showDetail?.genre_names?.map((genre, index) => {
+    return (
+      <h1 key={index} className="text-sm">
+        {genre}
+      </h1>
+    );
   });
 
   const embedTag = (url) => {
@@ -9,33 +21,76 @@ function ShowDetail({ show }) {
     return tag;
   };
 
+  const handleOverviewClick = () => {
+    console.log("overview");
+    setOpenTab(1);
+  };
+
+  const handleTrailerClick = () => {
+    console.log("trailer");
+    setOpenTab(2);
+  };
+
+  let content;
+  if (openTab === 1) {
+    content = <h1>{showDetail?.plot_overview}</h1>;
+  } else if (openTab === 2) {
+    content = (
+      <iframe
+        src={`https://www.youtube.com/embed/${embedTag(
+          showDetail.trailer
+        )}?autoplay=1`}
+        title={showDetail.title}
+        allow="autoplay"
+        width="560"
+        height="315"
+        className=""
+      />
+    );
+  }
+
   return (
     <div
       style={{
-        backgroundImage: `url(${show.backdrop})`,
+        backgroundImage: `url(${showDetail?.backdrop})`,
       }}
       className=" hero w-screen h-screen flex flex-row"
     >
-      <div className="bg-white bg-opacity-30 w-screen h-screen flex flex-row">
+      <div className="bg-black bg-opacity-50 w-screen h-screen flex flex-row">
         <div className="h-screen flex flex-row items-center justify-around w-1/2">
-          <iframe
-            src={`https://www.youtube.com/embed/${embedTag(
-              show.trailer
-            )}?autoplay=1`}
-            title={show.title}
-            allow="autoplay"
-            width="560"
-            height="315"
-            className=""
+          <img
+            src={showDetail?.poster}
+            alt={showDetail?.title}
+            className="h-3/4 rounded"
           />
         </div>
-        <div className="flex flex-col justify-start w-1/2">
-          <h1 className="text-4xl font-bold">{show.title}</h1>
-          <h1>{show.original_title}</h1>
-          <h1>{show.release_date}</h1>
+
+        <div className="flex flex-col justify-center w-1/2  gap-2 m-2  text-white ">
+          <h1 className="text-4xl font-bold">{showDetail?.title}</h1>
+          <h1>{showDetail?.original_title}</h1>
+          <h1>{showDetail?.release_date}</h1>
           <div className="flex flex-row gap-1">{renderedGenre} </div>
+
+          <div className="flex flex-row gap-5">
+            <h1
+              onClick={handleOverviewClick}
+              className={`${
+                openTab === 1 ? "font-bold bg-white bg-opacity-10 p-2" : "p-2"
+              }`}
+            >
+              Overview
+            </h1>
+            <h1
+              onClick={handleTrailerClick}
+              className={`${
+                openTab === 2 ? "font-bold  bg-white bg-opacity-10 p-2" : "p-2"
+              }`}
+            >
+              Trailer
+            </h1>
+          </div>
           <hr />
-          <h1 className="">{show.plot_overview}</h1>
+          <div>{content}</div>
         </div>
       </div>
     </div>
