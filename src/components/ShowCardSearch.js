@@ -2,11 +2,11 @@ import { useNavigate } from "react-router-dom";
 import AddButton from "./AddButton";
 import LikeButton from "./LikeButton";
 
-function ShowCard({ show }) {
+function ShowCardSearch({ show }) {
   const navigate = useNavigate();
   const handleShowClick = () => {
     console.log(show.id);
-    navigate("/");
+    navigate(`/${show.name}/${show.id}`);
   };
   return (
     <div
@@ -35,4 +35,4 @@ function ShowCard({ show }) {
   );
 }
 
-export default ShowCard;
+export default ShowCardSearch;

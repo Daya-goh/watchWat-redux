@@ -4,6 +4,7 @@ function HomePage() {
   const favShowsArray = useSelector((state) => {
     return state.favShows.favArray;
   });
+
   return (
     <div>
       <h1> Home Page</h1>

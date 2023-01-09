@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { GoSearch } from "react-icons/go";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { resetData } from "../store";
 import SearchBar from "./SearchBar";
 function NavBar() {
   const [search, setSearch] = useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSearchClick = () => {
     setSearch(true);
   };
 
   const handleTitleClick = () => {
+    dispatch(resetData());
     navigate("/");
   };
 

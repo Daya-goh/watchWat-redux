@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NavBar from "./components/Navbar";
 import "./index.css";
 import HomePage from "./pages/HomePage";
 import Layout from "./pages/Layout";
 import SearchResultPage from "./pages/SearchResultPage";
+import ShowDetailPage from "./pages/ShowDetailPage";
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
             path="/searchResults/:searchTerm"
             element={<SearchResultPage />}
           />
+          <Route path="/:name/:id" element={<ShowDetailPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

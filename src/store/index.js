@@ -1,8 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { showsApi } from "./api";
-import { showsReducer } from "./slices/searchBarSlice";
-import { setTerm, setData } from "./slices/searchBarSlice";
-import { addShow, favShowsReducer } from "./slices/favouriteShowsSlice";
+// import { showsApi } from "./api";
+import { showsReducer } from "./slices/searchSlice";
+import {
+  setTerm,
+  setData,
+  resetData,
+  setShowDetails,
+} from "./slices/searchSlice";
+import {
+  addShow,
+  removeShow,
+  favShowsReducer,
+} from "./slices/favouriteShowsSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,5 +21,5 @@ const store = configureStore({
 });
 
 export { store };
-export { setTerm, setData, addShow };
+export { setTerm, setData, resetData, addShow, removeShow, setShowDetails };
 // export { useFetchShowsQuery } from "./api";
