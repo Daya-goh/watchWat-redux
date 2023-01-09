@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { GoSearch } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 function NavBar() {
   const [search, setSearch] = useState(false);
+  const navigate = useNavigate();
   const handleSearchClick = () => {
     setSearch(true);
+  };
+
+  const handleTitleClick = () => {
+    navigate("/");
   };
 
   let searchButtonDisplay;
@@ -21,7 +27,12 @@ function NavBar() {
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">WatchWat</a>
+        <button
+          onClick={handleTitleClick}
+          className="btn btn-ghost normal-case text-xl"
+        >
+          WatchWat
+        </button>
       </div>
       {searchButtonDisplay}
     </div>

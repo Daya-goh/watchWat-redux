@@ -2,7 +2,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setData, setTerm } from "../store";
-import { useFetchShowsQuery } from "../store/api";
+// import { useFetchShowsQuery } from "../store/api";
 
 function SearchBar() {
   const dispatch = useDispatch();
