@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-function ShowDetail() {
+function ShowDetail({ show }) {
   const [openTab, setOpenTab] = useState(1);
-  const showDetail = useSelector((state) => {
-    return state?.shows?.showData;
-  });
 
-  const renderedGenre = showDetail?.genre_names?.map((genre, index) => {
+  const renderedGenre = show?.genre_names?.map((genre, index) => {
     return (
       <h1 key={index} className="text-sm">
         {genre}
@@ -33,14 +30,14 @@ function ShowDetail() {
 
   let content;
   if (openTab === 1) {
-    content = <h1 className="mt-2">{showDetail?.plot_overview}</h1>;
+    content = <h1 className="mt-2">{show?.plot_overview}</h1>;
   } else if (openTab === 2) {
     content = (
       <iframe
         src={`https://www.youtube.com/embed/${embedTag(
-          showDetail.trailer
+          show.trailer
         )}?autoplay=1`}
-        title={showDetail.title}
+        title={show.title}
         allow="autoplay"
         width="560"
         height="315"
@@ -52,24 +49,20 @@ function ShowDetail() {
   return (
     <div
       style={{
-        backgroundImage: `url(${showDetail?.backdrop})`,
+        backgroundImage: `url(${show?.backdrop})`,
       }}
       className=" hero w-screen h-screen flex flex-row"
     >
       <div className="bg-black bg-opacity-50 w-screen h-screen flex flex-row">
         <div className="h-screen flex flex-row items-center justify-around w-1/2">
-          <img
-            src={showDetail?.poster}
-            alt={showDetail?.title}
-            className="h-3/4 rounded"
-          />
+          <img src={show?.poster} alt={show?.title} className="h-3/4 rounded" />
         </div>
 
-        <div className="absolute right-8 top-32 w-1/2  m-2  text-white ">
+        <div className="absolute right-8 top-40 w-1/2  m-2  text-white ">
           <div className="flex flex-col gap-2">
-            <h1 className="text-4xl font-bold ">{showDetail?.title}</h1>
-            <h1>{showDetail?.original_title}</h1>
-            <h1>{showDetail?.release_date}</h1>
+            <h1 className="text-4xl font-bold ">{show?.title}</h1>
+            <h1>{show?.original_title}</h1>
+            <h1>{show?.release_date}</h1>
             <div className="flex flex-row gap-1">{renderedGenre} </div>
 
             <div className="flex flex-row gap-5">

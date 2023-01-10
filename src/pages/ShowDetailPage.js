@@ -18,10 +18,13 @@ function ShowDetailPage() {
     };
     fetchData();
   }, []);
+  const showDetail = useSelector((state) => {
+    return state?.shows?.showData;
+  });
 
   return (
     <div>
-      <ShowDetail />
+      <ShowDetail show={showDetail} />
     </div>
   );
 }

@@ -6,12 +6,13 @@ const searchSlice = createSlice({
     searchTerm: "",
     searchData: [],
     showData: {},
+    showArray: [],
   },
   reducers: {
     setTerm(state, action) {
       state.searchTerm = action.payload;
     },
-    setData(state, action) {
+    setSearchData(state, action) {
       state.searchData = action.payload;
     },
     setShowDetails(state, action) {
@@ -21,9 +22,12 @@ const searchSlice = createSlice({
     resetData(state, action) {
       state.searchTerm = "";
     },
+    setShows(state, action) {
+      state.showArray = action.payload;
+    },
   },
 });
 
-export const { setTerm, setData, resetData, setShowDetails } =
+export const { setTerm, setSearchData, resetData, setShowDetails, setShows } =
   searchSlice.actions;
 export const showsReducer = searchSlice.reducer;

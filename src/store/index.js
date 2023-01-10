@@ -3,9 +3,10 @@ import { configureStore } from "@reduxjs/toolkit";
 import { showsReducer } from "./slices/searchSlice";
 import {
   setTerm,
-  setData,
+  setSearchData,
   resetData,
   setShowDetails,
+  setShows,
 } from "./slices/searchSlice";
 import {
   addShow,
@@ -21,5 +22,13 @@ const store = configureStore({
 });
 
 export { store };
-export { setTerm, setData, resetData, addShow, removeShow, setShowDetails };
+export {
+  setTerm,
+  setSearchData,
+  resetData,
+  addShow,
+  removeShow,
+  setShowDetails,
+  setShows,
+};
 // export { useFetchShowsQuery } from "./api";
