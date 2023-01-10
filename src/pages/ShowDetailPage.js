@@ -10,7 +10,7 @@ function ShowDetailPage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const key = "Xi2NW1MlhJARxSqBIbyUJD68ZjljDinK2iKSzG6F";
+    const key = "lg7Olav3rpuTKfQoN3doessQD8OPKMT85NTWrTmu";
     const fetchDetailsUrl = `https://api.watchmode.com/v1/title/${id}/details/?apiKey=${key}`;
     const fetchData = async () => {
       const response = await axios.get(fetchDetailsUrl);

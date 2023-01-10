@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import AddButton from "./AddButton";
 import LikeButton from "./LikeButton";
 
 const Carousel = ({ shows }) => {
+  const navigate = useNavigate();
   const maxScrollWidth = useRef(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const carousel = useRef(null);
@@ -48,6 +50,9 @@ const Carousel = ({ shows }) => {
       : 0;
   }, []);
 
+  const handleClick = (show) => {
+    navigate(`/${show.title}/${show.id}`);
+  };
   return (
     <div className="carousel my-12 mx-auto">
       <div className="relative overflow-hidden">
@@ -104,9 +109,10 @@ const Carousel = ({ shows }) => {
             return (
               <div
                 key={index}
-                className="carousel-item text-center relative w-40 h-56 snap-start"
+                className="carousel-item text-center relative w-36 h-44 snap-start"
+                onClick={() => handleClick(resource.data)}
               >
-                <a
+                <div
                   href={resource.data}
                   className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0"
                   style={{
@@ -118,16 +124,12 @@ const Carousel = ({ shows }) => {
                     alt={resource.data.title}
                     className="w-full aspect-square hidden"
                   />
-                </a>
-                <a
+                </div>
+                <div
                   href={resource.data}
                   className="h-full w-full aspect-square block absolute top-0 left-0 transition-opacity duration-300 opacity-0 hover:opacity-90 bg-black z-10 hover:scale-110"
                 >
-                  <img
-                    src={resource.data.backdrop}
-                    alt={resource.data.tile}
-                    className="h-1/2"
-                  />
+                  <img src={resource.data.backdrop} alt={resource.data.tile} />
                   <h3 className="text-white mx-auto text-xs text-center m-2">
                     {resource.data.title}
                     <div className="absolute bottom-2 inset-x-0 justify-center">
@@ -135,7 +137,7 @@ const Carousel = ({ shows }) => {
                       <AddButton />
                     </div>
                   </h3>
-                </a>
+                </div>
               </div>
             );
           })}

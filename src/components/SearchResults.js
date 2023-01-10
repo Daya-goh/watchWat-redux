@@ -12,7 +12,7 @@ function SearchResults() {
   });
 
   return (
-    <div className="flex flex-row flex-wrap gap-5 m-10 ">
+    <div className="flex flex-row flex-wrap gap-5 m-10 justify-center ">
       {renderedSearchResults}
     </div>
   );

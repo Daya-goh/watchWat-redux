@@ -20,20 +20,23 @@ function NavBar() {
   let searchButtonDisplay;
 
   if (search) {
-    searchButtonDisplay = <SearchBar />;
+    searchButtonDisplay = <SearchBar setSearch={setSearch} />;
   } else {
     searchButtonDisplay = (
-      <button className="btn btn-square btn-ghost" onClick={handleSearchClick}>
+      <button
+        className="btn btn-square btn-ghost text-white mx-3"
+        onClick={handleSearchClick}
+      >
         <GoSearch />
       </button>
     );
   }
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-zinc-900 sticky top-0 z-30">
       <div className="flex-1">
         <button
           onClick={handleTitleClick}
-          className="btn btn-ghost normal-case text-xl"
+          className="btn btn-ghost normal-case text-xl text-white"
         >
           WatchWat
         </button>

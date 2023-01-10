@@ -6,10 +6,11 @@ import { setShows } from "../store";
 import comedyData from "../Data/ComedyData";
 import animeData from "../Data/AnimeData";
 import CarouselImported from "../components/CarouselImported";
+import ShowHero from "../components/ShowHero";
 
 function HomePage() {
   const dispatch = useDispatch();
-  const key = "Xi2NW1MlhJARxSqBIbyUJD68ZjljDinK2iKSzG6F";
+  const key = "lg7Olav3rpuTKfQoN3doessQD8OPKMT85NTWrTmu";
   const networkUrl = `https://api.watchmode.com/v1/list-titles/?apiKey=${key}&network_ids=511`;
 
   const carouselShowArray = useSelector((state) => {
@@ -35,7 +36,8 @@ function HomePage() {
 
   console.log(carouselShowArray);
   return (
-    <div>
+    <div className="bg-zinc-900 m-2 min-h-screen">
+      <ShowHero />
       <Carousel shows={carouselShowArray} />
       <CarouselImported shows={animeData} />
       <CarouselImported shows={comedyData} />

@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import AddButton from "./AddButton";
 import LikeButton from "./LikeButton";
 
 const CarouselImported = ({ shows }) => {
+  const navigate = useNavigate();
   const maxScrollWidth = useRef(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const carousel = useRef(null);
@@ -47,6 +49,10 @@ const CarouselImported = ({ shows }) => {
       ? carousel.current.scrollWidth - carousel.current.offsetWidth
       : 0;
   }, []);
+
+  const handleClick = (show) => {
+    navigate(`/${show.title}/${show.id}`);
+  };
 
   return (
     <div className="carousel my-12 mx-auto">
@@ -104,9 +110,10 @@ const CarouselImported = ({ shows }) => {
             return (
               <div
                 key={index}
-                className="carousel-item text-center relative w-40 h-56 snap-start"
+                className="carousel-item text-center relative w-36 h-44 snap-start"
+                onClick={() => handleClick(show)}
               >
-                <a
+                <div
                   href={show}
                   className="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0"
                   style={{
@@ -118,8 +125,8 @@ const CarouselImported = ({ shows }) => {
                     alt={show.title}
                     className="w-full aspect-square hidden"
                   />
-                </a>
-                <a
+                </div>
+                <div
                   href={show}
                   className="h-full w-full aspect-square block absolute top-0 left-0 transition-opacity duration-300 opacity-0 hover:opacity-90 bg-black z-10 hover:scale-110 rounded"
                 >
@@ -131,7 +138,7 @@ const CarouselImported = ({ shows }) => {
                       <AddButton />
                     </div>
                   </h3>
-                </a>
+                </div>
               </div>
             );
           })}
