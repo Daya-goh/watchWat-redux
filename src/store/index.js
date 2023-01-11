@@ -1,23 +1,31 @@
 import { configureStore } from "@reduxjs/toolkit";
 // import { showsApi } from "./api";
-import { showsReducer } from "./slices/searchSlice";
+import { showsReducer } from "./slices/showSlice";
 import {
   setTerm,
   setSearchData,
   resetData,
   setShowDetails,
   setShows,
-} from "./slices/searchSlice";
+  setInputStatus,
+} from "./slices/showSlice";
 import {
-  addShow,
-  removeShow,
+  addFavShow,
+  removeFavShow,
   favShowsReducer,
 } from "./slices/favouriteShowsSlice";
+
+import {
+  addToWatchList,
+  removedFromWatchList,
+  watchShowsReducer,
+} from "./slices/watchShowsSlice";
 
 const store = configureStore({
   reducer: {
     shows: showsReducer,
     favShows: favShowsReducer,
+    watchShows: watchShowsReducer,
   },
 });
 
@@ -26,9 +34,12 @@ export {
   setTerm,
   setSearchData,
   resetData,
-  addShow,
-  removeShow,
+  addFavShow,
+  removeFavShow,
   setShowDetails,
   setShows,
+  setInputStatus,
+  removedFromWatchList,
+  addToWatchList,
 };
 // export { useFetchShowsQuery } from "./api";

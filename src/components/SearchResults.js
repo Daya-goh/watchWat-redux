@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import searchData from "../Data/SearchResultData";
-import ShowCardSearch from "./ShowCardSearch";
+import ShowCard from "./ShowCard";
 function SearchResults() {
   //* for api search -> currently use imported data
   const searchResultsData = useSelector((state) => {
@@ -8,7 +8,7 @@ function SearchResults() {
   });
 
   const renderedSearchResults = searchResultsData.map((result) => {
-    return <ShowCardSearch key={result.id} show={result} />;
+    return <ShowCard key={result.id} show={result} />;
   });
 
   return (

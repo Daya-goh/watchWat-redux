@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { GoSearch } from "react-icons/go";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { resetData } from "../store";
+import { resetData, setInputStatus } from "../store";
 import SearchBar from "./SearchBar";
 function NavBar() {
-  const [search, setSearch] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const inputStatus = useSelector((state) => {
+    return state.shows.inputStatus;
+  });
+
   const handleSearchClick = () => {
-    setSearch(true);
+    dispatch(setInputStatus(true));
   };
 
   const handleTitleClick = () => {
@@ -19,8 +22,8 @@ function NavBar() {
 
   let searchButtonDisplay;
 
-  if (search) {
-    searchButtonDisplay = <SearchBar setSearch={setSearch} />;
+  if (inputStatus) {
+    searchButtonDisplay = <SearchBar />;
   } else {
     searchButtonDisplay = (
       <button
@@ -31,14 +34,37 @@ function NavBar() {
       </button>
     );
   }
+
+  const handleFavListClick = () => {
+    navigate("/favlist");
+    dispatch(setInputStatus(false));
+  };
+
+  const handleWatchListClick = () => {
+    navigate("/watchlist");
+    dispatch(setInputStatus(false));
+  };
+
   return (
-    <div className="navbar bg-zinc-900 sticky top-0 z-30">
+    <div className="navbar bg-zinc-900  sticky top-0 z-30">
       <div className="flex-1">
         <button
           onClick={handleTitleClick}
           className="btn btn-ghost normal-case text-xl text-white"
         >
           WatchWat
+        </button>
+        <button
+          onClick={handleFavListClick}
+          className="btn btn-ghost normal-case text-xs font-light text-white"
+        >
+          FavList
+        </button>
+        <button
+          onClick={handleWatchListClick}
+          className="btn btn-ghost normal-case text-xs font-light text-white"
+        >
+          WatchList
         </button>
       </div>
       {searchButtonDisplay}

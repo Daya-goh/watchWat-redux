@@ -6,12 +6,10 @@ const favShowSlice = createSlice({
     favArray: [],
   },
   reducers: {
-    addShow(state, action) {
-      console.log(action.payload);
+    addFavShow(state, action) {
       state.favArray.push(action.payload);
     },
-    removeShow(state, action) {
-      console.log(action.payload);
+    removeFavShow(state, action) {
       const filteredList = state.favArray.filter(
         (show) => show.id !== action.payload
       );
@@ -19,5 +17,5 @@ const favShowSlice = createSlice({
     },
   },
 });
-export const { addShow, removeShow } = favShowSlice.actions;
+export const { addFavShow, removeFavShow } = favShowSlice.actions;
 export const favShowsReducer = favShowSlice.reducer;
