@@ -110,7 +110,6 @@ const Carousel = ({ shows }) => {
               <div
                 key={index}
                 className="carousel-item text-center relative w-36 h-44 snap-start"
-                onClick={() => handleClick(resource.data)}
               >
                 <div
                   href={resource.data}
@@ -123,6 +122,7 @@ const Carousel = ({ shows }) => {
                     src={resource.data.poster || ""}
                     alt={resource.data.title}
                     className="w-full aspect-square hidden"
+                    onClick={() => handleClick(resource.data)}
                   />
                 </div>
                 <div
@@ -133,8 +133,8 @@ const Carousel = ({ shows }) => {
                   <h3 className="text-white mx-auto text-xs text-center m-2">
                     {resource.data.title}
                     <div className="absolute bottom-2 inset-x-0 justify-center">
-                      <LikeButton />
-                      <AddButton />
+                      <LikeButton show={resource.data} />
+                      <AddButton show={resource.data} />
                     </div>
                   </h3>
                 </div>

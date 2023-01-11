@@ -57,11 +57,11 @@ const CarouselImported = ({ shows }) => {
 
   return (
     <div className="carousel my-12 mx-auto bg-zinc-900">
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <div className="flex justify-between absolute top left w-full h-full">
           <button
             onClick={movePrev}
-            className="hover:bg-zinc-900/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed z-10 p-0 m-0 transition-all ease-in-out duration-300"
+            className="hover:bg-zinc-800/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed z-10 p-0 m-0 transition-all ease-in-out duration-300"
             disabled={isDisabled("prev")}
           >
             <svg
@@ -82,7 +82,7 @@ const CarouselImported = ({ shows }) => {
           </button>
           <button
             onClick={moveNext}
-            className="hover:bg-zinc-900/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed z-10 p-0 m-0 transition-all ease-in-out duration-300"
+            className="hover:bg-zinc-800/75 text-white w-10 h-full text-center opacity-75 hover:opacity-100 disabled:opacity-25 disabled:cursor-not-allowed z-10 p-0 m-0 transition-all ease-in-out duration-300"
             disabled={isDisabled("next")}
           >
             <svg
