@@ -24,7 +24,7 @@ function SearchBar() {
 
   const handleSearchSubmit = async (event) => {
     event.preventDefault();
-    const key = "RHHugJR1qM9DGvMQ7id18NmO42spStnIziU6vwr2";
+    const key = "nmHHQa7DASZOcKZoR9Ok3bcbzXbS6ocMNhw1H1FF";
     const searchURL = `https://api.watchmode.com/v1/autocomplete-search/?apiKey=${key}&search_field=name&search_value=${inputTerm}&search_type=2`;
     const response = await axios.get(searchURL);
     console.log(response.data);
