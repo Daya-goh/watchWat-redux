@@ -122,11 +122,11 @@ const Carousel = ({ shows }) => {
                     src={resource.data.poster || ""}
                     alt={resource.data.title}
                     className="w-full aspect-square hidden"
-                    onClick={() => handleClick(resource.data)}
                   />
                 </div>
                 <div
                   href={resource.data}
+                  onClick={() => handleClick(resource.data)}
                   className="h-full w-full aspect-square block absolute top-0 left-0 transition-opacity duration-300 opacity-0 hover:opacity-90 bg-black z-10 hover:scale-110"
                 >
                   <img src={resource.data.backdrop} alt={resource.data.tile} />

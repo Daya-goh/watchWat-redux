@@ -10,7 +10,7 @@ import ShowHero from "../components/ShowHero";
 
 function HomePage() {
   const dispatch = useDispatch();
-  const key = "lg7Olav3rpuTKfQoN3doessQD8OPKMT85NTWrTmu";
+  const key = "RHHugJR1qM9DGvMQ7id18NmO42spStnIziU6vwr2";
   const networkUrl = `https://api.watchmode.com/v1/list-titles/?apiKey=${key}&network_ids=511`;
 
   const carouselShowArray = useSelector((state) => {
