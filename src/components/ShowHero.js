@@ -12,11 +12,11 @@ function ShowHero() {
   return (
     <div className="relative">
       <div className="w-screen h-full bg-black absolute top-0 left-0 opacity-50 bg-blend-darken"></div>
-      <div className="absolute  top-5 left-5 m-2  md:top-1/3 lg:top-1/4">
-        <div className="text-white text-sm font-bold md:text-4xl lg:text-5xl">
+      <div className="absolute  top-10 left-5 m-2  md:top-1/3 lg:top-1/4">
+        <div className="text-white text-sm font-bold md:text-4xl lg:text-6xl">
           {koreanData[randomNumber].title}
         </div>
-        <div className="w-1/2 text-white mt-2 text-xs md:text-xs lg:text-base ">
+        <div className="w-1/2 text-white mt-2 text-xs md:text-xs lg:text-md xl:text-xl">
           {koreanData[randomNumber].plot_overview}
         </div>
         <iframe
