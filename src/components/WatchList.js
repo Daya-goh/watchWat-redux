@@ -23,7 +23,11 @@ function WatchList() {
     });
   }
 
-  return <div className="flex flex-row flow-wrap gap-3 mt-5">{content}</div>;
+  return (
+    <div className="flex flex-col flow-wrap gap-3 mt-5 md:flex-row lg:flex-row">
+      {content}
+    </div>
+  );
 }
 
 export default WatchList;

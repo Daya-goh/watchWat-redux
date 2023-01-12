@@ -8,6 +8,9 @@ function ShowCard({ show }) {
     console.log(show.id);
     navigate(`/${show.name}/${show.id}`);
   };
+
+  const showType = show.type.replace("_", " ");
+
   return (
     <div
       key={show.id}
@@ -29,7 +32,7 @@ function ShowCard({ show }) {
           <h1 className="text-white text-center text-xs mt-3">
             {show.title || show.name}
           </h1>
-          <h1 className="text-white text-center text-xs mt-1">{show.type}</h1>
+          <h1 className="text-white text-center text-xs mt-1">{showType}</h1>
         </div>
         <div className="absolute bottom-0 inset-x-0  w-full p-1">
           <div className="flex flex-row justify-center">

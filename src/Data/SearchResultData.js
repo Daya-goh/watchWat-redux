@@ -133,6 +133,41 @@ const searchData = [
     trailer_thumbnail:
       "https://cdn.watchmode.com/video_thumbnails/250448_pthumbnail_320.jpg",
   },
+  {
+    id: 1159480,
+    title: "Harry Potter and the Philosopher's Stone",
+    original_title: "Harry Potter and the Philosopher's Stone",
+    plot_overview:
+      "Harry Potter has lived under the stairs at his aunt and uncle's house his whole life. But on his 11th birthday, he learns he's a powerful wizard—with a place waiting for him at the Hogwarts School of Witchcraft and Wizardry. As he learns to harness his newfound powers with the help of the school's kindly headmaster, Harry uncovers the truth about his parents' deaths—and about the villain who's to blame.",
+    type: "movie",
+    runtime_minutes: 152,
+    year: 2001,
+    end_year: null,
+    release_date: "2001-11-16",
+    imdb_id: "tt0241527",
+    tmdb_id: 671,
+    tmdb_type: "movie",
+    genres: [2, 9],
+    genre_names: ["Adventure", "Fantasy"],
+    user_rating: 7.9,
+    critic_score: 73,
+    us_rating: "PG",
+    poster: "https://cdn.watchmode.com/posters/01159480_poster_w185.jpg",
+    backdrop: "https://cdn.watchmode.com/backdrops/01159480_bd_w780.jpg",
+    original_language: "en",
+    similar_titles: [
+      131946, 120122, 1129885, 1320861, 195674, 1418000, 4104127, 1580628,
+      158004, 1390046, 1346023, 1115770, 1256147, 1409086, 1337553, 1110398,
+      1149262, 1171478, 1141228, 1376729, 4106726, 445495, 1245599, 1419958,
+      1355404,
+    ],
+    networks: null,
+    network_names: [],
+    relevance_percentile: 99.82,
+    trailer: "https://www.youtube.com/watch?v=VyHV0BRtdxo",
+    trailer_thumbnail:
+      "https://cdn.watchmode.com/video_thumbnails/732822_pthumbnail_320.jpg",
+  },
 ];
 
 export default searchData;

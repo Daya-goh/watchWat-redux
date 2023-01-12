@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import AddButton from "./AddButton";
+import LikeButton from "./LikeButton";
 
 function ShowDetail({ show }) {
   const [openTab, setOpenTab] = useState(1);
@@ -51,7 +53,7 @@ function ShowDetail({ show }) {
       style={{
         backgroundImage: `url(${show?.backdrop})`,
       }}
-      className=" hero w-screen h-screen flex flex-row"
+      className=" hero w-screen h-screen flex flex-row "
     >
       <div className="bg-black bg-opacity-50 w-screen h-screen flex flex-row">
         <div className="h-screen flex flex-row items-center justify-around w-1/2">
@@ -64,7 +66,10 @@ function ShowDetail({ show }) {
             <h1>{show?.original_title}</h1>
             <h1>{show?.release_date}</h1>
             <div className="flex flex-row gap-1">{renderedGenre} </div>
-
+            <div>
+              <LikeButton show={show} />
+              <AddButton show={show} />
+            </div>
             <div className="flex flex-row gap-5">
               <h1
                 onClick={handleOverviewClick}

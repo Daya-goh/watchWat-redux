@@ -128,10 +128,14 @@ const CarouselImported = ({ shows }) => {
                 </div>
                 <div
                   href={show}
-                  onClick={() => handleClick(show)}
                   className="h-full w-full aspect-square block absolute top-0 left-0 transition-opacity duration-300 opacity-0 hover:opacity-90 bg-black z-10 hover:scale-110 rounded"
                 >
-                  <img src={show.backdrop} alt={show.tile} className="h-1/2" />
+                  <img
+                    src={show.backdrop}
+                    alt={show.tile}
+                    className="h-1/2"
+                    onClick={() => handleClick(show)}
+                  />
                   <h3 className="text-white mx-auto text-xs text-center m-2">
                     {show.title}
                     <div className="absolute bottom-4 inset-x-0 justify-center">
