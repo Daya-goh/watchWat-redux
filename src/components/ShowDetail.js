@@ -32,7 +32,7 @@ function ShowDetail({ show }) {
 
   let content;
   if (openTab === 1) {
-    content = <h1 className="mt-2">{show?.plot_overview}</h1>;
+    content = <h1 className="mt-2 w-full">{show?.plot_overview}</h1>;
   } else if (openTab === 2) {
     content = (
       <iframe
@@ -43,7 +43,7 @@ function ShowDetail({ show }) {
         allow="autoplay"
         width="560"
         height="315"
-        className="mt-2"
+        className="mt-2 mx-2"
       />
     );
   }
@@ -53,19 +53,25 @@ function ShowDetail({ show }) {
       style={{
         backgroundImage: `url(${show?.backdrop})`,
       }}
-      className=" hero w-screen h-screen flex flex-row "
+      className=" hero w-screen h-screen"
     >
-      <div className="bg-black bg-opacity-50 w-screen h-screen flex flex-row">
-        <div className="h-screen flex flex-row items-center justify-around w-1/2">
-          <img src={show?.poster} alt={show?.title} className="h-3/4 rounded" />
-        </div>
+      <div className="bg-black bg-opacity-50 w-screen h-screen flex flex-col items-start md:flex-row md:items-center">
+        <img
+          src={show?.poster}
+          alt={show?.title}
+          className="h-1/3 rounded mt-10 mx-24 md:h-1/2 "
+        />
 
-        <div className="absolute right-8 top-40 w-1/2  m-2  text-white ">
+        <div className=" mx-20 text-white md:mt-20 md:mx-20 md:w-1/3 lg:w-1/2">
           <div className="flex flex-col gap-2">
-            <h1 className="text-4xl font-bold ">{show?.title}</h1>
-            <h1>{show?.original_title}</h1>
-            <h1>{show?.release_date}</h1>
-            <div className="flex flex-row gap-1">{renderedGenre} </div>
+            <div className="flex flex-row items-center gap-2">
+              <h1 className="text-4xl font-bold ">{show?.title}</h1>
+              <h1>{show?.original_title}</h1>
+            </div>
+            <div className="flex flex-row gap-2">
+              <h1>{show?.release_date}</h1>
+              <div className="flex flex-row gap-1">{renderedGenre} </div>
+            </div>
             <div>
               <LikeButton show={show} />
               <AddButton show={show} />
@@ -93,7 +99,7 @@ function ShowDetail({ show }) {
               </h1>
             </div>
           </div>
-          <hr />
+          <hr className="" />
           <div>{content}</div>
         </div>
       </div>
