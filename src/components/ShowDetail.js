@@ -32,19 +32,25 @@ function ShowDetail({ show }) {
 
   let content;
   if (openTab === 1) {
-    content = <h1 className="mt-2 w-full">{show?.plot_overview}</h1>;
+    content = (
+      <h1 className="mt-2 w-full text-xs md:text-base">
+        {show?.plot_overview}
+      </h1>
+    );
   } else if (openTab === 2) {
     content = (
-      <iframe
-        src={`https://www.youtube.com/embed/${embedTag(
-          show.trailer
-        )}?autoplay=1`}
-        title={show.title}
-        allow="autoplay"
-        width="560"
-        height="315"
-        className="mt-2 mx-2"
-      />
+      <div class="aspect-w-16 aspect-h-9">
+        <iframe
+          src={`https://www.youtube.com/embed/${embedTag(
+            show.trailer
+          )}?autoplay=1`}
+          title={show.title}
+          allow="autoplay"
+          width="560"
+          height="315"
+          className="mt-2 mx-2"
+        />
+      </div>
     );
   }
 
@@ -62,15 +68,17 @@ function ShowDetail({ show }) {
           className="h-1/3 rounded mt-10 mx-24 md:h-1/2 "
         />
 
-        <div className=" mx-20 text-white md:mt-20 md:mx-20 md:w-1/3 lg:w-1/2">
+        <div className=" mx-16 text-white md:mt-20 md:mx-20 md:w-1/3 lg:w-1/2">
           <div className="flex flex-col gap-2">
             <div className="flex flex-row items-center gap-2">
-              <h1 className="text-4xl font-bold ">{show?.title}</h1>
-              <h1>{show?.original_title}</h1>
+              <h1 className="text-xl font-bold md:text-4xl">{show?.title}</h1>
+              <h1 className="text-xs md:text-base">{show?.original_title}</h1>
             </div>
             <div className="flex flex-row gap-2">
-              <h1>{show?.release_date}</h1>
-              <div className="flex flex-row gap-1">{renderedGenre} </div>
+              <h1 className="text-xs md:text-base">{show?.release_date}</h1>
+              <div className="flex flex-row gap-1 text-xs md:text-base">
+                {renderedGenre}{" "}
+              </div>
             </div>
             <div>
               <LikeButton show={show} />
@@ -99,7 +107,7 @@ function ShowDetail({ show }) {
               </h1>
             </div>
           </div>
-          <hr className="" />
+          <hr />
           <div>{content}</div>
         </div>
       </div>
