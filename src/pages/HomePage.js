@@ -37,7 +37,7 @@ function HomePage() {
   //   console.log(carouselShowArray);
 
   return (
-    <div className="bg-zinc-900 m-2 h-full">
+    <div className="bg-zinc-900 h-full">
       <ShowHero />
       <Carousel shows={carouselShowArray} />
       <CarouselImported shows={animeData} />
