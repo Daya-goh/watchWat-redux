@@ -16,7 +16,7 @@ function ShowHero() {
         <div className="text-white text-sm font-bold md:text-4xl lg:text-6xl">
           {koreanData[randomNumber].title}
         </div>
-        <div className="w-1/2 text-white mt-2 text-xs md:text-xs lg:text-md xl:text-xl">
+        <div className="w-2/3 text-white mt-2 text-xs md:w-1/2 md:text-xs lg:text-md xl:text-xl">
           {koreanData[randomNumber].plot_overview}
         </div>
         <iframe
