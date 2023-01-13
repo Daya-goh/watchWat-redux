@@ -50,19 +50,19 @@ function NavBar() {
       <div className="flex flex-start md:flex-1">
         <button
           onClick={handleTitleClick}
-          className="btn btn-ghost normal-case text-xl text-white"
+          className="btn btn-ghost normal-case text-sm text-white md:text-lg"
         >
           WatchWat
         </button>
         <button
           onClick={handleFavListClick}
-          className="btn btn-ghost normal-case text-xs font-light text-white"
+          className="btn btn-ghost normal-case text-xs font-light text-white w-10 md:w-20"
         >
           FavList
         </button>
         <button
           onClick={handleWatchListClick}
-          className="btn btn-ghost normal-case text-xs font-light text-white"
+          className="btn btn-ghost normal-case text-xs font-light text-white w-16 md:w-20"
         >
           WatchList
         </button>
