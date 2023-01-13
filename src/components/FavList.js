@@ -24,7 +24,7 @@ function FavList() {
   }
 
   return (
-    <div className="flex flex-col flow-wrap gap-3 mt-5 md:flex-row lg:flex-row">
+    <div className="flex flex-col flow-wrap gap-3 m-5 md:flex-row lg:flex-row">
       {content}
     </div>
   );

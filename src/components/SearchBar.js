@@ -44,7 +44,7 @@ function SearchBar() {
       <input
         type="text"
         placeholder="search"
-        className="input input-bordered w-54 max-w-xs h-8 text-sm"
+        className="input input-bordered w-20 h-8 text-sm mx-10 md:mx-3 md:w-56"
         onChange={handleChange}
         value={inputTerm}
         onBlur={handleOnBlur}
