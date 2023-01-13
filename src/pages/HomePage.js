@@ -17,27 +17,27 @@ function HomePage() {
     return state.shows.showArray;
   });
 
-  // useEffect(() => {
-  //   let codeArray = [];
-  //   const fetchShowsBaseData = async () => {
-  //     const response = await axios.get(networkUrl);
-  //     codeArray = response.data.titles.splice(0, 10);
+  useEffect(() => {
+    let codeArray = [];
+    const fetchShowsBaseData = async () => {
+      const response = await axios.get(networkUrl);
+      codeArray = response.data.titles.splice(0, 10);
 
-  //     const fetchData = await Promise.all(
-  //       codeArray.map((show) => {
-  //         const url = `https://api.watchmode.com/v1/title/${show.imdb_id}/details/?apiKey=${key}`;
-  //         return axios.get(url);
-  //       })
-  //     );
-  //     dispatch(setShows(fetchData));
-  //   };
-  //   fetchShowsBaseData();
-  // }, []);
+      const fetchData = await Promise.all(
+        codeArray.map((show) => {
+          const url = `https://api.watchmode.com/v1/title/${show.imdb_id}/details/?apiKey=${key}`;
+          return axios.get(url);
+        })
+      );
+      dispatch(setShows(fetchData));
+    };
+    fetchShowsBaseData();
+  }, []);
 
-  //   console.log(carouselShowArray);
+  console.log(carouselShowArray);
 
   return (
-    <div className="bg-zinc-900 h-full">
+    <div className="bg-zinc-900 h-screen">
       <ShowHero />
       <Carousel shows={carouselShowArray} />
       <CarouselImported shows={animeData} />
