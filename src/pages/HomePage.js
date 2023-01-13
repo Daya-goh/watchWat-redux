@@ -21,7 +21,7 @@ function HomePage() {
     let codeArray = [];
     const fetchShowsBaseData = async () => {
       const response = await axios.get(networkUrl);
-      codeArray = response.data.titles.splice(0, 10);
+      codeArray = response.data.titles.splice(0, 20);
 
       const fetchData = await Promise.all(
         codeArray.map((show) => {
