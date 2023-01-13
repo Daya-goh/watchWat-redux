@@ -8,7 +8,7 @@ function ShowDetail({ show }) {
 
   const renderedGenre = show?.genre_names?.map((genre, index) => {
     return (
-      <h1 key={index} className="text-sm">
+      <h1 key={index} className="text-xs md:text-base">
         {genre}
       </h1>
     );
