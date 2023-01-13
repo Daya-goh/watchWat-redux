@@ -47,7 +47,7 @@ function NavBar() {
 
   return (
     <div className="navbar bg-zinc-900  sticky top-0 z-30">
-      <div className="flex-1">
+      <div className="flex flex-start md:flex-1">
         <button
           onClick={handleTitleClick}
           className="btn btn-ghost normal-case text-xl text-white"
