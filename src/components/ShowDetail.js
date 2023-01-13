@@ -70,15 +70,14 @@ function ShowDetail({ show }) {
 
         <div className=" mx-16 text-white md:mt-20 md:mx-20 md:w-1/3 lg:w-1/2">
           <div className="flex flex-col gap-2">
-            <div className="flex flex-row items-center gap-2">
+            <div className="flex flex-row items-center gap-2 md:flex-col md:items-start">
               <h1 className="text-xl font-bold md:text-4xl">{show?.title}</h1>
               <h1 className="text-xs md:text-base">{show?.original_title}</h1>
             </div>
-            <div className="flex flex-row gap-2">
-              <h1 className="text-xs md:text-base">{show?.release_date}</h1>
-              <div className="flex flex-row gap-1 text-xs md:text-base">
-                {renderedGenre}{" "}
-              </div>
+
+            <h1 className="text-xs md:text-base">{show?.release_date}</h1>
+            <div className="flex flex-row gap-1 text-xs md:text-base">
+              {renderedGenre}
             </div>
             <div>
               <LikeButton show={show} />
