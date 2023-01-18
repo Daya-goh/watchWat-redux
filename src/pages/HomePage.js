@@ -10,7 +10,7 @@ import ShowHero from "../components/ShowHero";
 
 function HomePage() {
   const dispatch = useDispatch();
-  const key = "nmHHQa7DASZOcKZoR9Ok3bcbzXbS6ocMNhw1H1FF";
+  const key = "YlKDJYA1sxhvJjCNwZ5wLY24rXg6msDzJwkks3XG";
   const networkUrl = `https://api.watchmode.com/v1/list-titles/?apiKey=${key}&network_ids=511`;
 
   const carouselShowArray = useSelector((state) => {
@@ -21,7 +21,7 @@ function HomePage() {
     let codeArray = [];
     const fetchShowsBaseData = async () => {
       const response = await axios.get(networkUrl);
-      codeArray = response.data.titles.splice(0, 20);
+      codeArray = response.data.titles.splice(0, 10);
 
       const fetchData = await Promise.all(
         codeArray.map((show) => {
@@ -34,10 +34,8 @@ function HomePage() {
     fetchShowsBaseData();
   }, []);
 
-  console.log(carouselShowArray);
-
   return (
-    <div className="bg-zinc-900 min-h-screen md:min-h-screen lg:min-h-screen">
+    <div className="">
       <ShowHero />
       <Carousel shows={carouselShowArray} />
       <CarouselImported shows={animeData} />

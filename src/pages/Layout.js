@@ -3,7 +3,7 @@ import NavBar from "../components/Navbar";
 
 function Layout() {
   return (
-    <div className="bg-zinc-900 w-screen min-h-screen">
+    <div className="bg-zinc-900 min-h-screen">
       <NavBar />
       <Outlet />
     </div>

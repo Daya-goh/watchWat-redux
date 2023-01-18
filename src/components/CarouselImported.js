@@ -35,7 +35,6 @@ const CarouselImported = ({ shows }) => {
         carousel.current.offsetWidth * currentIndex >= maxScrollWidth.current
       );
     }
-
     return false;
   };
 
@@ -56,7 +55,7 @@ const CarouselImported = ({ shows }) => {
   };
 
   return (
-    <div className="carousel my-12 mx-auto bg-zinc-900">
+    <div className="carousel my-5 mx-auto bg-zinc-900">
       <div className="relative overflow-hidden">
         <div className="flex justify-between absolute top left w-full h-full">
           <button
@@ -105,13 +104,13 @@ const CarouselImported = ({ shows }) => {
 
         <div
           ref={carousel}
-          className="carousel-container relative flex gap-3 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-0"
+          className="carousel-container relative flex gap-3 overflow-hidden scroll-smooth snap-x snap-mandatory touch-pan-x z-0 my-3"
         >
           {shows?.map((show, index) => {
             return (
               <div
                 key={index}
-                className="carousel-item text-center relative w-36 h-44 snap-start "
+                className="carousel-item text-center relative w-36 h-44 snap-start"
               >
                 <div
                   href={show}
