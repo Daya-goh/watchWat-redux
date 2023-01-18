@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AddButton from "./AddButton";
 import LikeButton from "./LikeButton";
-import ShowCard from "./ShowCard";
 
 const CarouselImported = ({ shows }) => {
   const navigate = useNavigate();
